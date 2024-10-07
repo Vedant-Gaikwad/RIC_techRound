@@ -29,9 +29,8 @@ string infixToPostfix(string infix) {
         postfix += operators.top();
         operators.pop();
       }
-      operators.pop(); // Pop '('
+      operators.pop(); 
     } else {
-      // Operator
       while (!operators.empty() && precedence(ch) <= precedence(operators.top())) {
         postfix += operators.top();
         operators.pop();
@@ -39,8 +38,6 @@ string infixToPostfix(string infix) {
       operators.push(ch);
     }
   }
-
-  // Pop remaining operators
   while (!operators.empty()) {
     postfix += operators.top();
     operators.pop();
